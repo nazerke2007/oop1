@@ -1,11 +1,13 @@
 package assignment1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-public class Shelter {
+class Shelter {
     private String name;
     private String location;
-    private ArrayList<Pet> pets;
+    private List<Pet> pets;
 
     public Shelter(String name, String location) {
         this.name = name;
@@ -13,24 +15,23 @@ public class Shelter {
         this.pets = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public void addPet(Pet pet) {
         pets.add(pet);
+    }
+
+    public List<Pet> filterPetsByType(String type) {
+        List<Pet> result = new ArrayList<>();
+        for (Pet pet : pets) {
+            if (pet.getType().equalsIgnoreCase(type)) {
+                result.add(pet);
+            }
+        }
+        return result;
+    }
+
+    public List<Pet> sortPetsByAge() {
+        pets.sort(Comparator.comparingInt(Pet::getAge));
+        return pets;
     }
 
     public void displayPets() {
@@ -40,4 +41,3 @@ public class Shelter {
         }
     }
 }
-

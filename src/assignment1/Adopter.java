@@ -1,6 +1,6 @@
 package assignment1;
 
-public class Adopter {
+class Adopter {
     private String name;
     private int age;
     private String contactInfo;
@@ -40,4 +40,3 @@ public class Adopter {
         return "Adopter{name='" + name + "', age=" + age + ", contactInfo='" + contactInfo + "'}";
     }
 }
-
